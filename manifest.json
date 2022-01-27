@@ -1,0 +1,59 @@
+{
+	"manifest_version": 2,
+	"name": "NonToxicInternet",
+	"description": "Чистый интернет! Технопарк Альтаир, МИРЭА. Тествая версия.",
+	"version": "0.0.1",
+	"author": "Lazyferret",
+	"icons": {"128": "images/non-toxic-128.png"},
+	"browser_action": {
+		"default_title": "NonToxicInternet",
+		"default_icon": "images/non-toxic.png"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"<all_urls>"
+			],
+			"js": ["jquery-3.6.0.min.js","main.js"]
+		}
+	],
+	"permissions": [
+	  "tabs",
+	  "bookmarks",
+	  "unlimitedStorage",
+	  "activeTab",
+	  "alarms",
+	  "background",
+	  "bookmarks",
+	  "browsingData",
+	  "certificateProvider",
+	  "clipboardRead",
+	  "clipboardWrite",
+	  "contentSettings",
+	  "contextMenus",
+	  "cookies",
+	  "debugger",
+	  "declarativeContent",
+	  "declarativeNetRequest",
+	  "declarativeNetRequestFeedback",
+	  "declarativeWebRequest",
+	  "desktopCapture",
+	  "documentScan",
+	  "downloads",
+	  "enterprise.deviceAttributes",
+	  "enterprise.hardwarePlatform",
+	  "experimental",
+	  "fileBrowserHandler",
+	  "fileSystemProvider",
+	  "fontSettings",
+	  "gcm",
+	  "geolocation",
+	  "history",
+	  "management",
+	  "notifications",
+	  "printing",
+	  "webRequest",
+	  "wallpaper",
+	  "webRequestBlocking"  
+	]
+}
