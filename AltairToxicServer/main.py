@@ -13,6 +13,7 @@ from sklearn.model_selection import train_test_split
 from tensorflow.keras.models import model_from_json
 import os
 import json
+import re
 
 
 # Подгрузка нейронки
@@ -73,14 +74,16 @@ def start_server():
             data = client_socket.recv(50*2**23)
             # print(data)
             data = data.decode('utf-8')
+            data = re.sub("[>$|@|&1234567890]", "", data)
             data = data.split('\n')
             cleared_data = data[-1][2:-2].split(',\"')
             print(cleared_data)
             if data[0][0:4] == 'POST':
                 print('ok')
                 content = []
-                for i in model.predict(cleared_data):
-                    if i >= 0.44:
+                predicted_data = model.predict(cleared_data)
+                for i in range(len(predicted_data)):
+                    if predicted_data[i] >= 0.44 and len(cleared_data[i]) >= 5:
                         content.append("1")
                     else:
                         content.append("0")
