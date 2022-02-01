@@ -14,7 +14,7 @@ xmlHttp.onload = () => {
 	resp = JSON.parse(xmlHttp.response)
 
 	content.forEach(function(item, i, arr) {
-		if (resp[i]=='тест'){
+		if (resp[i]=='1'){
 		content[i].style.backgroundColor = "#FA8072";
 		}
 	});
