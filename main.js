@@ -11,7 +11,7 @@ xmlHttp.open( "POST", 'http://localhost:2000', true ); // false for synchronous 
 xmlHttp.send(data);
 
 xmlHttp.onload = () => {
-	resp = xmlHttp.response
+	resp = JSON.parse(xmlHttp.response)
 
 	content.forEach(function(item, i, arr) {
 		if (resp[i]=='тест'){
