@@ -15,4 +15,4 @@
 - JS, jQuery
 - TensorFlow 2.8
 - Keras 2.4
-- Sphinx 3+
+
