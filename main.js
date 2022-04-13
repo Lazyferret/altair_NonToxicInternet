@@ -1,21 +1,4 @@
-let content = document.querySelectorAll('.pst')     //Получение комментариев на странице
-let cleared_text = [];
-content.forEach(function(item, i, arr) {
-	cleared_text.push(content[i].textContent);      //Получение очищенного текста
-});	
-let data = JSON.stringify(cleared_text);            //Преобразование полученных данных в JSON
-//console.log(data);
-var xmlHttp = new XMLHttpRequest();
-xmlHttp.open( "POST", 'http://localhost:2000', true ); // false for synchronous request
-xmlHttp.send(data);
 
-xmlHttp.onload = () => {
-	resp = JSON.parse(xmlHttp.response)
+document.body.insertAdjacentHTML('afterbegin', '<h1>Выберите режим фильтрации контента</h1><input type="radio" name="r1" value="5">Подсвечивать красным<br><input type="radio" name="r1" value="13">Подсвечивать и менять текст на спецсимволы<br><input type="radio" name="r1" value="53">Убирать<br><button onclick="let content=document.querySelectorAll(&quot;span, h1, h2, h3, h4, h5, h6, .pst, p&quot;),cleared_text=[];content.forEach(function(t,e,n){cleared_text.push(content[e].textContent)});let data=JSON.stringify(cleared_text);var xmlHttp=new XMLHttpRequest;xmlHttp.open(&quot;POST&quot;,&quot;http://localhost:2000&quot;,!0),xmlHttp.send(data);for(var rad=document.getElementsByName(&quot;r1&quot;),i=0;i<rad.length;i++)rad[i].checked&&(0===i&&(xmlHttp.onload=()=>{resp=JSON.parse(xmlHttp.response),content.forEach(function(t,e,n){&quot;1&quot;==resp[e]&&(content[e].style.display=null,content[e].style.backgroundColor=&quot;#FA8072&quot;)})}),1===i&&(xmlHttp.onload=()=>{resp=JSON.parse(xmlHttp.response),content.forEach(function(t,e,n){&quot;1&quot;==resp[e]&&(content[e].style.display=null,content[e].style.backgroundColor=&quot;#FA8072&quot;,content[e].textContent=&quot;*****************&quot;)})}),2===i&&(xmlHttp.onload=()=>{resp=JSON.parse(xmlHttp.response),content.forEach(function(t,e,n){&quot;1&quot;==resp[e]&&(content[e].style.display=&quot;none&quot;)})}));">Выбрать</button>');
 
-	content.forEach(function(item, i, arr) {
-		if (resp[i]=='1'){
-		content[i].style.backgroundColor = "#FA8072";
-		content[i].textContent="***********************************************************************"
-		}
-	});
-}
+
